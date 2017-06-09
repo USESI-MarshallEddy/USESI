@@ -23,6 +23,8 @@ If you have xcode and android studio installed then you can run IOS and Android 
 ### Android:
 
        $ cordova run android
+      
+#      
    
 ### To add other platforms simply tpye in this command:
 
