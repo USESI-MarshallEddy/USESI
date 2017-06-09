@@ -49,10 +49,12 @@ If you have xcode and android studio installed then you can run IOS and Android 
 
 ## Current Plugins:
 
+>
    cordova-plugin-camera 2.4.1 "Camera"
    cordova-plugin-compat 1.1.0 "Compat"
    cordova-plugin-console 1.0.7 "Console"
    cordova-plugin-statusbar 2.2.3 "StatusBar"
    cordova-plugin-whitelist 1.2.2 "Whitelist"
+   >
 
   
