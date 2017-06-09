@@ -7,8 +7,8 @@
 
 Easiest way to test this would be running these in the command line inside the www/ folder
 
-  > $ cordova build \n
-  > $ cordova run browser
+   $ cordova build
+   $ cordova run browser
     
 
 
