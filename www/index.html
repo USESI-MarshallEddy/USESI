@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src * 'unsafe-inline'; media-src * 'unsafe-inline' 'unsafe-eval'; img-src * 'unsafe-inline';">
+
+    <!-- Required meta tags-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <title>USESI-Mobile</title>
+
+
+    <link rel="stylesheet" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="lib/framework7/css/framework7.ios.min.css">
+    <link rel="stylesheet" href="lib/framework7/css/framework7.ios.colors.min.css">
+    <!--<link rel="stylesheet" href="lib/framework7/css/framework7-icons.css">-->
+    <link rel="stylesheet" href="css/styles.css">
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">-->
+
+    <style>
+        i.fa {
+            display: inline-block;
+            vertical-align: middle;
+            background-size: 100% auto;
+            background-position-x: center;
+            background-position-y: center;
+            background-repeat: no-repeat;
+            font-style: normal;
+            position: relative;
+        }
+
+        .tabbar i.fa {
+            height: 30px;
+            display: block;
+        }
+
+        i.fa {
+            font-weight: normal;
+            font-style: normal;
+            font-size: 28px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-font-feature-settings: "liga";
+            -moz-font-feature-settings: "liga=1";
+            -moz-font-feature-settings: "liga";
+            font-feature-settings: "liga";
+            text-align: center;
+        }
+
+        .color-icon-before {
+            color: #514d6a;
+        }
+
+        .color-icon-after {
+            color: #08f;
+        }
+        /* Text style for side panel links */
+
+        .font-text {
+            font-size: 14px;
+            color: dimgray;
+        }
+        /* Used to make the iframe webview fit the main view of the web app. */
+
+        iframe {
+            width: 100%;
+            height: 100%;
+        }
+        /* This is here to remove the default icon 'chevron' from
+           the framework7 .item-link & .item-inner combo used for
+           sidel panel/hamburger-menu in '#Menu' and '#yourAccount' */
+
+        .list-block .item-link .item-inner.no-chevron {
+            background-image: none;
+        }
+        /* Used to back background of side panels 'white' */
+
+        .panel {
+            background-color: white;
+        }
+
+        #mobile-toolBar #mobile-toolBar-inner #mobile-cart #mobile-badge .badge.bg-red {
+            background-color: rgba(255, 59, 48, 0.92);
+            color: #fff;
+            font-family: "SourceSansPro-Regular", "Open Sans", sans-serif, serif;
+            line-height: 14px;
+            height: 14px;
+            min-width: 14px;
+            border-radius: 14px;
+            font-size: 9px;
+        }
+
+        body {
+            font-family: "SourceSansPro-Regular", "Open Sans", sans-serif, serif;
+            font-size: 14px;
+        }
+
+        iframe {
+            clip: rect(40px, 1000px, 1000px, 0px);
+        }
+
+        .myText {
+            width: 90%;
+            height: 150px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- Status bar overlay for full screen mode (PhoneGap) -->
+    <div class="statusbar-overlay"></div>
+    <div class="panel-overlay"></div>
+    <!-- Left panel with reveal effect (Menu)-->
+    <div class="panel panel-left panel-reveal">
+        <div class="page-content">
+            <div class="content-block-title">Menu</div>
+            <div class="list-block">
+                <ul>
+                    <li>
+                        <a href="#ShopByCategory" class="item-link item-content">
+                            <div class="item-inner no-chevron">
+                                <div class="item-title font-text">Shop By Category</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#Search" class="prompt-title-ok-button item-link item-content speech">
+                            <div class="item-inner no-chevron">
+                                <div class="item-title font-text">Search</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#ScanABarCode" class="item-link item-content">
+                            <div class="item-inner no-chevron">
+                                <div class="item-title font-text">Scan a Barcode</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#QuickOrder" class="item-link item-content">
+                            <div class="item-inner no-chevron">
+                                <div class="item-title font-text">Quick Order</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#SubmitAPhoto" class="open-3-modal-photo item-link item-content">
+                            <div class="item-inner no-chevron">
+                                <div class="item-title font-text">Submit a Photo</div>
+                                <!--<img src"" id="img_ph">-->
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#Help" class="item-link item-content">
+                            <div class="item-inner no-chevron">
+                                <div class="item-title font-text">Help</div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+                <div class="list-block-label">© 2017 US Electrical Services, Inc.</div>
+            </div>
+        </div>
+    </div>
+
+    <!--Right Panel with reveal effect (Account)-->
+    <div class="panel panel-right panel-reveal">
+        <div class="page-content">
+            <div class="content-block-title">Account</div>
+            <div class="list-block">
+                <ul>
+                    <li>
+                        <a href="#YourCatalog" class="item-link item-content">
+                            <div class="item-inner no-chevron">
+                                <div class="item-title font-text">Your Catalog</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#YourLists" class="item-link item-content">
+                            <div class="item-inner no-chevron">
+                                <div class="item-title font-text">Your Lists</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#YourOrders" class="item-link item-content">
+                            <div class="item-inner no-chevron">
+                                <div class="item-title font-text">Your Orders</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#AddressBook" class="item-link item-content">
+                            <div class="item-inner no-chevron">
+                                <div class="item-title font-text">Address Book</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#Account" class="item-link item-content">
+                            <div class="item-inner no-chevron">
+                                <div class="item-title font-text">Account<br>Name<br>Address<br>CSZ<br>Index</div>
+                                <div class="item-after"><i class="fa fa-angle-right" style="color:lightgray;"></i></div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#Branch" class="item-link item-content">
+                            <div class="item-inner no-chevron">
+                                <div class="item-title font-text">Branch<br>Current Branch<br><br><br><br></div>
+                                <div class="item-after"><i class="fa fa-map-marker" style="color:gray;"></i></div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+                <div class="list-block-label">© 2017 US Electrical Services, Inc.</div>
+            </div>
+        </div>
+    </div>
+    <!-- Views -->
+    <div class="views">
+        <!-- Top Navbar for USESI logo to go to home page. -->
+
+        <!--<div class="navbar" style="height:46px;">
+            <div class="navbar-inner">
+                <div class="center" style="line-height:4px;">
+                    <a href="#HomePageLogo" class="link">
+                        <img src="img/logo.png" alt="US Electrical Services, Inc." style="width:122.5px;height:34.5px;border:0;">
+                    </a>
+                </div>
+            </div>
+        </div>-->
+
+        <!-- ToolBar -->
+        <div class="pages toolbar-through">
+            <div data-page="index" class="page">
+                <!-- Scrollable page content -->
+                <div class="page-content" style="-webkit-overflow-scrolling: touch; overflow: auto;">
+                    <!--<img src"" id="img_ph">-->
+                    <iframe id='#mainFrame' src="http://alpha.usesi.com" style="border:none;"></iframe>
+                    <div class="content-block view-main">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Bottom Toolbar-->
+        <div class="toolbar tabbar" id="mobile-toolBar">
+            <div class="toolbar-inner" id="mobile-toolBar-inner">
+                <!-- Toolbar links -->
+                <div class="left">
+                    <a href="#Menu" data-panel="left" class="tab-link icon-only open-panel">
+                            <i id="Menu" class="fa fa-bars color-icon-before"></i>
+                        </a>
+                </div>
+                <div class="left">
+                    <a href="#yourAccount" data-panel="right" class="tab-link icon-only open-panel">
+                            <i id="Account" class="fa fa-building color-icon-before"></i>
+                        </a>
+                </div>
+
+                <!-- White Space -->
+                <div><a href="#" class="tab-link"></a></div>
+                <div><a href="#" class="tab-link"></a></div>
+                <div><a href="#" class="tab-link"></a></div>
+                <div><a href="#" class="tab-link"></a></div>
+                <div><a href="#" class="tab-link"></a></div>
+                <div><a href="#" class="tab-link"></a></div>
+                <div><a href="#" class="tab-link"></a></div>
+                <div><a href="#" class="tab-link"></a></div>
+                <div><a href="#" class="tab-link"></a></div>
+                <div><a href="#" class="tab-link"></a></div>
+                <div><a href="#" class="tab-link"></a></div>
+
+                <div class="right" id="mobile-cart">
+                    <a href="#cart" class="tab-link icon-only">
+                        <!--<i id="mobile-badge" class="icon"><span class=" icon f7-icons color-icon">box_fill</span><span class="badge bg-red" syle="background-color:red;">5</span></i>-->
+                        <i id="mobile-badge" class="icon fa fa-shopping-cart color-icon-before">
+                                    <span class="badge bg-red">5</span>
+                            </i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- Java Script -->
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="lib/framework7/js/framework7.min.js"></script>
+    <script type="text/javascript" src="js/my-app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+{
+    "name": "com.usesi.mobile",
+    "version": "1.0.0",
+    "displayName": "USESI-Mobile",
+    "cordova": {
+        "platforms": [
+            "android",
+            "browser",
+            "ios"
+        ],
+        "plugins": {
+            "cordova-plugin-console": {},
+            "cordova-plugin-whitelist": {},
+            "cordova-plugin-camera": {
+                "CAMERA_USAGE_DESCRIPTION": " ",
+                "PHOTOLIBRARY_USAGE_DESCRIPTION": " "
+            },
+            "cordova-plugin-statusbar": {}
+        }
+    },
+    "dependencies": {
+        "cordova-android": "~6.2.3",
+        "cordova-browser": "^4.1.0",
+        "cordova-ios": "~4.4.0",
+        "cordova-plugin-camera": "^2.4.1",
+        "cordova-plugin-compat": "^1.1.0",
+        "cordova-plugin-console": "~1.0.1",
+        "cordova-plugin-statusbar": "^2.2.3",
+        "cordova-plugin-whitelist": "~1.2.0"
+    }
+}
