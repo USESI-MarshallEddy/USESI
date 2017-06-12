@@ -221,18 +221,18 @@ function displayImg(imgData) {
 
 // accessCamera();
 function cameraSuccess(imgData) {
-    // $('#img_ph').attr('src', imgData);
+  
+  var image = document.getElementById('img_ph');
 
-    // var image = document.getElementById('img_ph').src=imgData;
-    // image.style.display = 'block';
+  img_ph.style.display = 'block';
 
-    // image.attr('src', imgData);
+  image.src = "data:image/jpeg;base64," + imgData;
 
     myApp.modal({
     title: 'Submit a photo',
     text: 'Check and make sure this is the correct image you want to submit. Then type a message you want to go along with this image (250 Characters):',
     afterText:  //'<form action="">' +
-                    '<img src="" id"img_ph"> <br><br>' +
+                    '<img style="display:none;width:60px;height:60px;" id="img_ph" src="" alt="FAILURE" /> <br><br>' +
                     '<input type="text" name="message" placeholder="Description" class="myText" maxlength="250"> <br><br>',
                     // '<input type="submit" value "Send">' +
                 //'</form>',
@@ -253,13 +253,15 @@ function cameraSuccess(imgData) {
 }
 
 function cameraError(error) {
-    alert(error);
+    alert('Failed because: ' + error);
 }
+
+// function 
 
 function accessCamera(imgSource) {
     if (imgSource == 'photoLibrary') {
         var options = {
-            quality: 50, 
+            quality: 20, 
             destinationType: Camera.DestinationType.FILE_URI,
             sourceType: Camera.PictureSourceType.PHOTOLIBRARY,     // or 'CAMERA'
             encodingType: Camera.EncodingType.JPEG,
@@ -269,8 +271,8 @@ function accessCamera(imgSource) {
         };
     } else if (imgSource == 'camera') {
         var options = {
-            quality: 50, 
-            destinationType: Camera.DestinationType.FILE_URI,
+            quality: 20, 
+            destinationType: Camera.DestinationType.DATA_URL,
             sourceType: Camera.PictureSourceType.CAMERA,     // or 'PHOTOLIBRARY'
             encodingType: Camera.EncodingType.JPEG,
             mediaType: Camera.MediaType.PICTURE,
