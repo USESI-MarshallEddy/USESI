@@ -24,6 +24,15 @@ var Account = 'customer/account';
 var Branch = '';
 var Cart = 'checkout/cart/';
 
+
+var accName = 'Marshall Eddy';
+var accAddress = '1807 West Boise Ave Apt F';
+var accCSZ = 'here is my CSZ';
+
+var accountInfo = "Account <br>" + accName + "<br>" + accAddress + "<br>" + accCSZ + "<br>";
+
+var accCurrentBranch = 'USESI-myBranchBoi';
+
 var mainFrame = $$('#mainFrame');
 
 mainFrame.on('load', function() {
@@ -43,6 +52,14 @@ $$('.link').on('click', function() {
         });
     }
 })
+
+
+
+
+
+// document.getElementById("#AccountInfo").innerHMTL = "HEELELELELEEOOOO";
+// $$('.item-title .font-text .value')(accountInfo);
+
 
 // $$(document).on('deviceready', function() {
 //     $$.get(BaseUrl + GetVars, {}, function(data) {
@@ -194,15 +211,9 @@ $$('.panel').on('close', function () {
 /*                       */
 /*************************/
 
-function displayImg(imgData) {
-    document.getElementById('img_ph').src = imgData;
-}
-
-// accessCamera();
+/* This is for when the camera successfully obtains an image. It will display
+   a modal with the image for confirmation and to write a message for submission. */
 function cameraSuccess(imgData) {
-  
- 
-
     myApp.modal({
     title: 'Submit a photo',
     text: 'Check and make sure this is the correct image you want to submit. Then type a message you want to go along with this image (250 Characters):',
@@ -225,19 +236,23 @@ function cameraSuccess(imgData) {
     ],
     
 })
+// Changes the img 'img_ph' src tag to the image selected so that it is displayed 
+// in the modal for submission.
  var image = document.getElementById('img_ph');
-
   img_ph.style.display = 'block';
-
   image.src = "data:image/jpeg;base64," + imgData;
 }
 
+
+// Error Message 
 function cameraError(error) {
     alert('Failed because: ' + error);
 }
 
-// function 
 
+/* Essentially a getter for the options variable of the camera. */
+/* These options are the exact same except for the PictureSourceType*/
+/* being either PHOTOLIBRARY or CAMERA. */
 function accessCamera(imgSource) {
     if (imgSource == 'photoLibrary') {
         var options = {
