@@ -120,7 +120,7 @@ $$('.prompt-title-ok-button').on('click', function () {
         });
     }
 });
-
+ 
 /* Modal for accessing camera to take a picture, or photo library */
 $$('.open-3-modal-photo').on('click', function() {
     myApp.closePanel();
@@ -145,27 +145,6 @@ $$('.open-3-modal-photo').on('click', function() {
                     onClick: function() {
                        var options = accessCamera('photoLibrary');
                         navigator.camera.getPicture(cameraSuccess, cameraError, options);
-                        myApp.modal({
-                            title: 'Submit a photo',
-                            text: 'Check and make sure this is the correct image you want to submit. Then type a message you want to go along with this image (250 Characters):',
-                            afterText:  //'<form action="">' +
-                                            '<img src="" id"img_ph" alt="Your Photo"> <br><br>' +
-                                            '<input type="text" name="message" placeholder="Description" class="myText" maxlength="250"> <br><br>',
-                                            // '<input type="submit" value "Send">' +
-                                        //'</form>',
-                            buttons: [
-                                {
-                                    text: 'Cancel',
-                                    onClick: function() { }
-                                },
-                                {
-                                    text: 'Submit', id: '#submitImg',
-                                    onClick: function() {
-
-                                    }
-                                }
-                            ]
-                        })
                     }
                 },
             ]
@@ -222,11 +201,7 @@ function displayImg(imgData) {
 // accessCamera();
 function cameraSuccess(imgData) {
   
-  var image = document.getElementById('img_ph');
-
-  img_ph.style.display = 'block';
-
-  image.src = "data:image/jpeg;base64," + imgData;
+ 
 
     myApp.modal({
     title: 'Submit a photo',
@@ -250,6 +225,11 @@ function cameraSuccess(imgData) {
     ],
     
 })
+ var image = document.getElementById('img_ph');
+
+  img_ph.style.display = 'block';
+
+  image.src = "data:image/jpeg;base64," + imgData;
 }
 
 function cameraError(error) {
@@ -262,8 +242,8 @@ function accessCamera(imgSource) {
     if (imgSource == 'photoLibrary') {
         var options = {
             quality: 20, 
-            destinationType: Camera.DestinationType.FILE_URI,
-            sourceType: Camera.PictureSourceType.PHOTOLIBRARY,     // or 'CAMERA'
+            destinationType: Camera.DestinationType.DATA_URL,
+            sourceType: Camera.PictureSourceType.PHOTOLIBRARY,     // 'PHOTOLIBRARY'
             encodingType: Camera.EncodingType.JPEG,
             mediaType: Camera.MediaType.PICTURE,
             allowEdit: true,
@@ -273,7 +253,7 @@ function accessCamera(imgSource) {
         var options = {
             quality: 20, 
             destinationType: Camera.DestinationType.DATA_URL,
-            sourceType: Camera.PictureSourceType.CAMERA,     // or 'PHOTOLIBRARY'
+            sourceType: Camera.PictureSourceType.CAMERA,     // 'CAMERA'
             encodingType: Camera.EncodingType.JPEG,
             mediaType: Camera.MediaType.PICTURE,
             allowEdit: true,
