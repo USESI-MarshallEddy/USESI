@@ -26,7 +26,8 @@ var Cart = 'checkout/cart/';
 // Account information:
 // These variables are placeholders for when I can obtain the actual account information to set 
 // the variables = to.
-var accName = 'Marshall Eddy';
+// var accName = 'Marshall Eddy';
+var accName = accountInformationName;
 var accAddress = '1807 West Boise Ave';
 var accCSZ = 'here is my CSZ';
 var accountInfo = "Account \n" + accName + "\n" + accAddress + "\n" + accCSZ + "\n";
@@ -37,7 +38,8 @@ var CurrentBranch = "Branch \n" + accCurrentBranch + "\n \n \n \n";
 
 var mainIFrame = $$('#mainIFrame');
 
-// var mainIFrame = document.getElementById('mainIFrame');
+
+
 
 mainIFrame.on('load', function() {
     mainIFrame[0].contentWindow.postMessage('mobileapp', '*');
