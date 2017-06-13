@@ -3,14 +3,13 @@
 // Initialize app
 var myApp = new Framework7();
 
-
 // If we need to use custom DOM library, let's save it to $$ variable:
 var $$ = Dom7;
 
 /* Variable for the extended URLs */ 
 var BaseUrl = 'http://alpha.usesi.com/';
-// var BaseUrl = '';
 var GetVars = '?mobileapp=1';
+// var GetVars = '';
 var Help = 'help-page/';
 var QuickOrder = 'quickorder/';
 var Search = 'hawksearch/keyword/index/?keyword=';
@@ -21,30 +20,44 @@ var YourLists = 'wishlist/';
 var YourOrders = 'sales/order/history/';
 var AddressBook = 'customer/address/';
 var Account = 'customer/account';
-var Branch = '';
+var Branch = '#';
 var Cart = 'checkout/cart/';
 
-
+// Account information:
+// These variables are placeholders for when I can obtain the actual account information to set 
+// the variables = to.
 var accName = 'Marshall Eddy';
-var accAddress = '1807 West Boise Ave Apt F';
+var accAddress = '1807 West Boise Ave';
 var accCSZ = 'here is my CSZ';
+var accountInfo = "Account \n" + accName + "\n" + accAddress + "\n" + accCSZ + "\n";
 
-var accountInfo = "Account <br>" + accName + "<br>" + accAddress + "<br>" + accCSZ + "<br>";
+// Placeholder for Current Branch information
+var accCurrentBranch = 'USESI-myBranch';
+var CurrentBranch = "Branch \n" + accCurrentBranch + "\n \n \n \n";
 
-var accCurrentBranch = 'USESI-myBranchBoi';
+var mainIFrame = $$('#mainIFrame');
 
-var mainFrame = $$('#mainFrame');
+// var mainIFrame = document.getElementById('mainIFrame');
 
-mainFrame.on('load', function() {
-    mainFrame[0].contentWindow.postMessage('mobileapp', '*');
+mainIFrame.on('load', function() {
+    mainIFrame[0].contentWindow.postMessage('mobileapp', '*');
 });
 
-mainFrame.on('load', function(){
-      getIFrameContent('#mainFrame');
-});
+// mainIFrame.on('load', function(){
+//       getIFrameContent('mainIFrame');
+// });
+
+// Change the inner text of the Account tab under myAccount
+document.getElementById("#accountHTML").innerText = accountInfo;
+
+// Change the inner text of the Branch tab under myAccount
+document.getElementById("#branchHTML").innerText = CurrentBranch;
 
 
-
+/**
+ * Script for when clicking on the Logo it brings you
+ * back to the Home Page.
+ */
 $$('.link').on('click', function() {
     if($$(this).attr('href') == '#HomePageLogo') {
         $$.get(BaseUrl + GetVars, {}, function(data) {
@@ -52,14 +65,6 @@ $$('.link').on('click', function() {
         });
     }
 })
-
-
-
-
-
-// document.getElementById("#AccountInfo").innerHMTL = "HEELELELELEEOOOO";
-// $$('.item-title .font-text .value')(accountInfo);
-
 
 // $$(document).on('deviceready', function() {
 //     $$.get(BaseUrl + GetVars, {}, function(data) {
@@ -73,37 +78,46 @@ $$('.link').on('click', function() {
  */
 $$('.item-link').on('click', function() {
     myApp.closePanel();
-    
+    // e.preventDefault();
     if($$(this).attr('href') == '#Help') {
-        $$('#mainFrame').attr('src', BaseUrl + Help + GetVars);
+        document.getElementById('mainIFrame').src = BaseUrl + Help + GetVars;
+        // $$('mainIFrame').attr('src', BaseUrl + Help + GetVars);
     } else if($$(this).attr('href') == '#QuickOrder') {
-         $$('#mainFrame').attr('src', BaseUrl + QuickOrder + GetVars); 
+         document.getElementById('mainIFrame').src = BaseUrl + QuickOrder + GetVars;
+        //  $$('mainIFrame').attr('src', BaseUrl + QuickOrder + GetVars); 
     } else if($$(this).attr('href') == '#ScanABarCode') {
         // $$.get(BaseUrl + Help + GetVars, {}, function(data) {
         //     $$('.view-main').html(data);
         // });
     } else if($$(this).attr('href') == '#ShopByCategory') {
-        $$('#mainFrame').attr('src', BaseUrl + CategoryShop + GetVars);
+        document.getElementById('mainIFrame').src = BaseUrl + CategoryShop + GetVars;
+        // $$('mainIFrame').attr('src', BaseUrl + CategoryShop + GetVars);
     } else if($$(this).attr('href') == '#yourAccount') {
-        $$('#mainFrame').attr('src', BaseUrl + AccountLogin + GetVars);
+        document.getElementById('mainIFrame').src = BaseUrl + AccountLogin + GetVars;
+        // $$('mainIFrame').attr('src', BaseUrl + AccountLogin + GetVars);
     } else if($$(this).attr('href') == '#YourCatalog') {
-        $$('#mainFrame').attr('src', BaseUrl + YourCatalog + GetVars);
+        document.getElementById('mainIFrame').src = BaseUrl + YourCatalog + GetVars;
+        // $$('mainIFrame').attr('src', BaseUrl + YourCatalog + GetVars);
     } else if($$(this).attr('href') == '#YourLists') {
-        $$('#mainFrame').attr('src', BaseUrl + YourLists + GetVars);
+        document.getElementById('mainIFrame').src = BaseUrl + YourLists + GetVars;
+        // $$('mainIFrame').attr('src', BaseUrl + YourLists + GetVars);
     } else if($$(this).attr('href') == '#YourOrders') {
-        $$('#mainFrame').attr('src', BaseUrl + YourOrders + GetVars);
+        document.getElementById('mainIFrame').src = BaseUrl + YourOrders + GetVars;
+        // $$('mainIFrame').attr('src', BaseUrl + YourOrders + GetVars);
     } else if($$(this).attr('href') == '#AddressBook') {
-        $$('#mainFrame').attr('src', BaseUrl + AddressBook + GetVars);
+        document.getElementById('mainIFrame').src = BaseUrl + AddressBook + GetVars;
+        // $$('mainIFrame').attr('src', BaseUrl + AddressBook + GetVars);
     } else if($$(this).attr('href') == '#Account') {
-        $$('#mainFrame').attr('src', BaseUrl + Account + GetVars);
+        document.getElementById('mainIFrame').src = BaseUrl + Account + GetVars;
+        // $$('mainIFrame').attr('src', BaseUrl + Account + GetVars);
     } else if($$(this).attr('href') == '#Branch') {
-        $$('#mainFrame').attr('src', BaseUrl + Branch + GetVars);
+        document.getElementById('mainIFrame').src = BaseUrl + Branch + GetVars;
+        // $$('mainIFrame').attr('src', BaseUrl + Branch + GetVars);
     } 
 })
 
 /* Search Modal */
 $$('.prompt-title-ok-button').on('click', function () {
-    // myApp.closePanel();
     var input = "";
     if($$(this).attr('href') == '#Search'){
         myApp.modal({
@@ -120,8 +134,9 @@ $$('.prompt-title-ok-button').on('click', function () {
                 text: 'Search',
                 onClick: function(value) {
                     value = document.getElementById("#searchText").value
-                    $$('#mainFrame').attr('src', BaseUrl + Search + value + "/" + GetVars);
-                    myApp.alert('Searching for: ' + value, ['Product Search']);
+                    // $$('mainIFrame').attr('src', BaseUrl + Search + value + "/" + GetVars);
+                    document.getElementById('mainIFrame').src = BaseUrl + Search + value;
+                    // myApp.alert('Searching for: ' + value, ['Product Search']);
                 }
             },
             {
@@ -178,9 +193,10 @@ $$('')
 $$('.tab-link').on('click', function(e) {
     if($$(this).attr('href') == '#cart') {
         iconColorChange('i#mobile-badge.fa.fa-shopping-cart');
-        $$.get(BaseUrl + Cart + GetVars, {}, function(data) {
-            $$('.view-main').html(data);
-        });
+        // $$.get(BaseUrl + Cart + GetVars, {}, function(data) {
+        //     $$('.view-main').html(data);
+        // });
+        document.getElementById('mainIFrame').src = BaseUrl + Cart + GetVars;
     $$('i').removeClass('color-icon-after');
     $$('i').addClass('color-icon-before');
     } else if($$(this).attr('href') == '#Menu') {
@@ -191,13 +207,13 @@ $$('.tab-link').on('click', function(e) {
 })
 
 /**
- * Helper function for cleaner looking code
+ * Helper function for chaning the color of an icon once it is clicked ('touched')
  */
 function iconColorChange(atString) {
     $$(atString).removeClass('color-icon-before');
     $$(atString).addClass('color-icon-after');
 };
-
+// ^^^^^ //
 $$('.panel').on('close', function () {
     $$('i').removeClass('color-icon-after');
     $$('i').addClass('color-icon-before');
@@ -207,7 +223,7 @@ $$('.panel').on('close', function () {
 
 /*************************/
 /*                       */
-/* Camera/Photos!!!      */
+/*    Camera/Photos!!!   */
 /*                       */
 /*************************/
 
@@ -216,10 +232,11 @@ $$('.panel').on('close', function () {
 function cameraSuccess(imgData) {
     myApp.modal({
     title: 'Submit a photo',
-    text: 'Check and make sure this is the correct image you want to submit. Then type a message you want to go along with this image (250 Characters):',
+    // text: 'Check and make sure this is the correct image you want to submit. Then type a message you want to go along with this image (250 Characters):',
     afterText:  //'<form action="">' +
-                    '<img style="display:none;width:60px;height:60px;" id="img_ph" src="" alt="FAILURE" /> <br><br>' +
-                    '<input type="text" name="message" placeholder="Description" class="myText" maxlength="250"> <br><br>',
+                    "<center>" + '<img height="150" style="display:block;verticle-align:middle;"'
+                    + 'id="img_ph" src="" alt="FAILURE" />' + "</center>" +
+                    '<input type="text" name="message" placeholder="Description" class="myText" maxlength="250"><br>',
                     // '<input type="submit" value "Send">' +
                 //'</form>',
     buttons: [
@@ -256,22 +273,22 @@ function cameraError(error) {
 function accessCamera(imgSource) {
     if (imgSource == 'photoLibrary') {
         var options = {
-            quality: 20, 
+            // quality: 20, 
             destinationType: Camera.DestinationType.DATA_URL,
             sourceType: Camera.PictureSourceType.PHOTOLIBRARY,     // 'PHOTOLIBRARY'
             encodingType: Camera.EncodingType.JPEG,
             mediaType: Camera.MediaType.PICTURE,
-            allowEdit: true,
+            // allowEdit: true,
             correctOrientation: true    // Corrects Android issue
         };
     } else if (imgSource == 'camera') {
         var options = {
-            quality: 20, 
+            // quality: 20, 
             destinationType: Camera.DestinationType.DATA_URL,
             sourceType: Camera.PictureSourceType.CAMERA,     // 'CAMERA'
             encodingType: Camera.EncodingType.JPEG,
             mediaType: Camera.MediaType.PICTURE,
-            allowEdit: true,
+            // allowEdit: true,
             correctOrientation: true    // Corrects Android issue
         };
     }
@@ -302,7 +319,7 @@ function startDictation() {
         recognition.onresult = function(e) {
             document.getElementById('#searchText').value = e.results[0][0].transcript;
             recognition.stop();
-            // document.getElementById('#mic').value += document.getElementById("#searchText").value + " ";
+            document.getElementById('#mic').value += document.getElementById("#searchText").value + " ";
         };
         recognition.onerror = function(e) {
             recognition.stop();

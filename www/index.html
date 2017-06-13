@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src * 'unsafe-inline'; media-src * 'unsafe-inline' 'unsafe-eval'; img-src * 'unsafe-inline';">
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src * 'unsafe-inline'; media-src * 'unsafe-inline' 'unsafe-eval'; img-src * data: 'unsafe-inline' 'unsafe-eval';">
 
     <!-- Required meta tags-->
     <meta charset="utf-8">
@@ -248,7 +248,7 @@
                 <!-- Scrollable page content -->
                 <div class="page-content" style="-webkit-overflow-scrolling: touch; overflow: auto;">
                     <!--<img src"" id="img_ph">-->
-                    <iframe id='#mainFrame' src="http://alpha.usesi.com" style="border:none;"></iframe>
+                    <iframe id='mainIFrame' src="http://alpha.usesi.com" style="border:none;"></iframe>
                     <div class="content-block view-main">
                     </div>
                 </div>

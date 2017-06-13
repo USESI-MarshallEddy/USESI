@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src * 'unsafe-inline'; media-src * 'unsafe-inline' 'unsafe-eval'; img-src * 'unsafe-inline';">
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src * 'unsafe-inline'; media-src * 'unsafe-inline' 'unsafe-eval'; img-src * data: 'unsafe-inline' 'unsafe-eval';">
 
     <!-- Required meta tags-->
     <meta charset="utf-8">
@@ -111,12 +111,6 @@
         iframe {
             clip: rect(40px, 1000px, 1000px, 0px);
         }
-
-        .myText {
-            width: 90%;
-            height: 150px;
-        }
-
     </style>
 </head>
 
@@ -180,7 +174,7 @@
     </div>
 
     <!--Right Panel with reveal effect (Account)-->
-    <div class="panel panel-right panel-reveal">
+    <div class="panel panel-right panel-reveal" id"#rightPanel">
         <div class="page-content">
             <div class="content-block-title">Account</div>
             <div class="list-block">
@@ -216,7 +210,7 @@
                     <li>
                         <a href="#Account" class="item-link item-content">
                             <div class="item-inner no-chevron">
-                                <div class="item-title font-text">Account<br>Name<br>Address<br>CSZ<br>Index</div>
+                                <div class="item-title font-text" id="#accountHTML"></div>
                                 <div class="item-after"><i class="fa fa-angle-right" style="color:lightgray;"></i></div>
                             </div>
                         </a>
@@ -224,7 +218,7 @@
                     <li>
                         <a href="#Branch" class="item-link item-content">
                             <div class="item-inner no-chevron">
-                                <div class="item-title font-text">Branch<br>Current Branch<br><br><br><br></div>
+                                <div class="item-title font-text" id="#branchHTML"></div>
                                 <div class="item-after"><i class="fa fa-map-marker" style="color:gray;"></i></div>
                             </div>
                         </a>
@@ -254,7 +248,7 @@
                 <!-- Scrollable page content -->
                 <div class="page-content" style="-webkit-overflow-scrolling: touch; overflow: auto;">
                     <!--<img src"" id="img_ph">-->
-                    <iframe id='#mainFrame' src="http://alpha.usesi.com" style="border:none;"></iframe>
+                    <iframe id='mainIFrame' src="http://alpha.usesi.com" style="border:none;"></iframe>
                     <div class="content-block view-main">
                     </div>
                 </div>
