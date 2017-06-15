@@ -26,8 +26,8 @@ var Cart = 'checkout/cart/';
 // Account information:
 // These variables are placeholders for when I can obtain the actual account information to set 
 // the variables = to.
-// var accName = 'Marshall Eddy';
-var accName = accountInformationName;
+var accName = 'Marshall Eddy';
+// var accName = accountInformationName;
 var accAddress = '1807 West Boise Ave';
 var accCSZ = 'here is my CSZ';
 var accountInfo = "Account \n" + accName + "\n" + accAddress + "\n" + accCSZ + "\n";
@@ -62,9 +62,10 @@ document.getElementById("#branchHTML").innerText = CurrentBranch;
  */
 $$('.link').on('click', function() {
     if($$(this).attr('href') == '#HomePageLogo') {
-        $$.get(BaseUrl + GetVars, {}, function(data) {
-            $$('.view-main').html(data);
-        });
+        // $$.get(BaseUrl + GetVars, {}, function(data) {
+        //     $$('.view-main').html(data);
+        // });
+         document.getElementById('mainIFrame').src = BaseUrl;
     }
 })
 
@@ -138,7 +139,7 @@ $$('.prompt-title-ok-button').on('click', function () {
                     value = document.getElementById("#searchText").value
                     // $$('mainIFrame').attr('src', BaseUrl + Search + value + "/" + GetVars);
                     document.getElementById('mainIFrame').src = BaseUrl + Search + value;
-                    // myApp.alert('Searching for: ' + value, ['Product Search']);
+                    myApp.alert('Searching for: ' + value, ['Product Search']);
                 }
             },
             {

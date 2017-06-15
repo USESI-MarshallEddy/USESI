@@ -73,12 +73,7 @@
             font-size: 14px;
             color: dimgray;
         }
-        /* Used to make the iframe webview fit the main view of the web app. */
 
-        iframe {
-            width: 100%;
-            height: 100%;
-        }
         /* This is here to remove the default icon 'chevron' from
            the framework7 .item-link & .item-inner combo used for
            sidel panel/hamburger-menu in '#Menu' and '#yourAccount' */
@@ -106,10 +101,28 @@
         body {
             font-family: "SourceSansPro-Regular", "Open Sans", sans-serif, serif;
             font-size: 14px;
+            margin: 0;
+            padding: 0;
+            /*text-align: center;*/
+        }
+
+        .content-block {
+            margin: 0px 0;
+            padding: 0 0px;
+            color: #6d6d72;
+            box-sizing: border-box;
+            padding-top: 34px;
         }
 
         iframe {
-            clip: rect(40px, 1000px, 1000px, 0px);
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            border: none;
+        }
+
+        #mainIFrame #toTop .to-Top:hover {
+                background-color: #abb9cf;
         }
     </style>
 </head>
@@ -232,24 +245,24 @@
     <div class="views">
         <!-- Top Navbar for USESI logo to go to home page. -->
 
-        <!--<div class="navbar" style="height:46px;">
+        <div class="navbar" style="height:44px;">
             <div class="navbar-inner">
                 <div class="center" style="line-height:4px;">
                     <a href="#HomePageLogo" class="link">
-                        <img src="img/logo.png" alt="US Electrical Services, Inc." style="width:122.5px;height:34.5px;border:0;">
+                        <img src="img/USESI_Logo.png" alt="US Electrical Services, Inc." style="width:122.5px;height:34.5px;border:0;">
                     </a>
                 </div>
             </div>
-        </div>-->
+        </div>
 
         <!-- ToolBar -->
         <div class="pages toolbar-through">
             <div data-page="index" class="page">
                 <!-- Scrollable page content -->
-                <div class="page-content" style="-webkit-overflow-scrolling: touch; overflow: auto;">
+                <div class="page-content">
                     <!--<img src"" id="img_ph">-->
-                    <iframe id='mainIFrame' src="http://alpha.usesi.com" style="border:none;"></iframe>
-                    <div class="content-block view-main">
+                    <div class="content-block view-main" style="height:100%;">
+                        <iframe id='mainIFrame' src="http://alpha.usesi.com"></iframe>
                     </div>
                 </div>
             </div>
